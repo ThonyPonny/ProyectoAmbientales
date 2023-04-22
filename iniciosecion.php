@@ -8,8 +8,10 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <title>SAC</title>
+    <title>Log In</title>
 </head>
+
+
 <header>
     <ul class="nav nav-tabs">
         <li class="nav-item">
@@ -35,26 +37,17 @@
         </li>
     </ul>
 </header>
-<body class="bbck">
-    <img src="img/basura.png" class="ImgNosotros">
-    <div class="texnos">
-        <h1 class="h1nos">¿Quiene somos?</h1>
-        <br>
-        <div >
-            <ul class="alistanos">
-                <li>Aguilar Hernandez Samuel.</li>
-                <li>Olivares Zavala Anthony Migue.</li>
-                <li>Lara Gomez Sergio Antonio.</li>
-                <li>Lopez Gomez Victor Hugo.</li>
-            </ul>
-        </div>
 
-        <h1 _ngcontent-ng-c3726287390 class="h1nos">Y SOMOS ESTUDIANTES<br>
-            PREOCUPADOS POR EL<br>
-            DAÑO IRREVERSIBLE QUE LE <br>
-            PODEMOS CAUSAR<br>
-            AL CAÑON DEL SUMIDERO</h1>
+<body>
+    <div class="rec1">
+        <p class="bnv">Bienvenido</p>
+        <p class="email">dirección e-mail: </p>
+        <input class="rec2" type="email" id="username" name="username">
+        <p class="contra">contraseña: </p>
+        <input class="rec3" type="password" id="username" name="username">
+        <input class="rec4" type="submit" value="iniciar sesión">
     </div>
+    <img class="imglogin" src="img/log.png">
 </body>
 
 </html>
