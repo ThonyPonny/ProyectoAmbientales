@@ -1,70 +1,116 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <title>Galeria</title>
-</head>
+    <link rel="icon" href="img/unach.png">
+    <title>Galeria-Salvando el cañon</title>
 
+</head>
 <header>
-    <ul class="nav nav-tabs">
-        <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="index.html">Inicio</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="Nosotros.html">Nosotros</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link active" href="galeria.html">Galeria</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="Historia.html">Historia</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="contactos.html">Contactanos</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="iniciosecion.php">Iniciar sesion</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="registrase.php">Registrase</a>
-        </li>
-    </ul>
+    <div class="head">
+
+        <div class="logo">
+            <a href="index.html"><img src="img/unach.png" alt=""></a>
+        </div>
+
+        <nav class="navbar">
+            <a href="index.html">Inicio</a>
+            <a href="Nosotros.html">Nosotros</a>
+            <a href="Galeria.html">Galería</a>
+            <a href="Historia.html">Historia</a>
+            <a href="contacto.html">Contactos</a>
+            <a href="iniciosesion.php">Iniciar sesión</a>
+            <a href="registrase.php">registarse</a>
+        </nav>
+
+    </div>
 </header>
 
-
-<body class="bbck">
+<body class="d-flex flex-column min-vh-100 bg-Green">
     <div class="container">
-        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="img/gal1.png" class="d-block w-100" alt="...">
+        <div class="mb-5"></div>
+        <div class="carrusel1">
+            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="img/gal1.png" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/gal2.png" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/gal3.png" class="d-block w-100" alt="...">
+                    </div>
                 </div>
-                <div class="carousel-item">
-                    <img src="img/gal2.png" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="img/gal3.png" class="d-block w-100" alt="...">
-                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+        </div>
+
+        <div class="mb-5 "></div>
+
+        <p class="card-text text-white formulario">El Cañón del Sumidero es uno de los atractivos naturales más impresionantes de México, sin embargo, su
+            conservación y cuidado son responsabilidad de todos. Es importante que como visitantes y habitantes de la
+            zona,
+            tomemos conciencia de la importancia de preservar este ecosistema, que es hogar de una gran diversidad de
+            especies animales y vegetales.</p>
+
+        <p class="card-text text-white formulario">Para contribuir a su cuidado, es fundamental respetar las normas y reglas establecidas por las autoridades,
+            como
+            no arrojar basura ni contaminantes al río, no realizar actividades que puedan afectar la flora y fauna, así
+            como
+            evitar la extracción de especies animales o vegetales. Además, es importante seguir las recomendaciones para
+            realizar actividades recreativas de forma segura y responsable.</p>
+
+        <p class="card-text text-white formulario"> De esta manera, podremos disfrutar del Cañón del Sumidero y su belleza natural por muchos años más,
+            garantizando
+            su conservación para las futuras generaciones.
+        </p>
+        <p class="card-text text-white formulario">El Cañón del Sumidero es un lugar natural impresionante, pero también es importante tomar en cuenta algunas
+            acciones para cuidarlo y preservarlo. Algunas recomendaciones son:</p>
+        <div class="container">
+            <ul class="card-text text-white formulario">
+                <li>No arrojar basura ni objetos contaminantes al cañón.</li>
+                <li>No hacer ruidos fuertes que puedan alterar a la fauna del lugar.</li>
+                <li>No alimentar a los animales que habitan en el cañón, ya que puede alterar su hábitat natural y afectar
+                    su
+                    salud.</li>
+                <li>No extraer plantas, rocas u otros elementos naturales del cañón.</li>
+                <li>Respetar las señalizaciones y seguir las indicaciones de los guías turísticos para evitar accidentes.
+                </li>
+            </ul>
+        </div>
+        <p class="card-text text-white formulario">Si todos colaboramos, podemos ayudar a conservar este hermoso lugar para futuras generaciones.</p>
+        <div class="mb-5"></div>
+    </div>
+    <div class="mb-5"></div>
+    <div class="mb-5"></div>
+</body>
+<footer class="mt-auto mt-5">
+    <div class="mb-5"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <p>&copy; 2023 Mi sitio web</p>
+            </div>
+            <div class="col-md-6 text-end">
+                <a href="privacidad.html" class="text-white">Política de privacidad</a>
+                <a href="servicio.html" class="text-white">Términos de servicio</a>
+            </div>
         </div>
     </div>
-
-</body>
+</footer>
 
 </html>

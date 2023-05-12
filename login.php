@@ -1,110 +1,55 @@
 <?php
-    include ("conexion.php");
+session_start();
 
-    if(!empty($_POST["btn_ingresar"])){
-        $user = $_POST['username'];
-        $contra = $_POST['password'];
+include("conexion.php");
 
-        if(empty($contra) || empty($user)){
-            echo "<script>";
-            echo "Swal.fire({";
-            echo "icon: 'error',";
-            echo "title: 'Oops...',";
-            echo "text: '¡No se permiten campos vacíos!',";
-            echo "})";
-            echo "</script>";
-        }
-        if (isset($_POST['username'], $_POST['password']) &&
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    if (isset($_POST['username'], $_POST['password']) &&
         !empty($_POST['username']) &&
-        !empty($_POST['password'])){
-
-                $consulta = "SELECT * FROM usuario WHERE usuario = '".mysqli_real_escape_string($conexion, $user)."'";
-                $resultado  = mysqli_query($conexion,$consulta);
-
-                if (!$resultado) {
-                    // Mostrar un mensaje de error si la consulta falla
-                    echo "Error al ejecutar la consulta: " . mysqli_error($conexion);
-                        
-                } else {
-                    $fila = mysqli_fetch_assoc($resultado);
-                    // Obtener el primer dato de la fila
-                    $contrasena_r = $fila["pass"];
-                }
-
-                if (password_verify($contra,$contrasena_r)) {
-                    # code...
-                    session_start();
-
+        !empty($_POST['password'])) {
+            $consulta = "SELECT * FROM usuario WHERE nombre = '".mysqli_real_escape_string($conexion, $username)."'";
+            $resultado  = mysqli_query($conexion,$consulta);
+        
+            if (!$resultado) {
+                // Mostrar un mensaje de error si la consulta falla
+                header("Location:iniciosesion.php?mensaje=Error:%20" . mysqli_error($conexion));
+                exit();
+            } else {
+                $fila = mysqli_fetch_assoc($resultado);
+                // Obtener el primer dato de la fila
+                $contra = $fila["contrasena"];
+                $tipusu = $fila["tipo_usuario"];
+                $id = $fila["idusuario"];
+            }
+            if (mysqli_num_rows($resultado) == 0) {
+                // La consulta devolvió al menos una fila, realizar acción aquí
+                header("Location:iniciosesion.php?mensaje=Error:%20El%20usuario%20no%20existe");
+                exit();
+        
+              } else {
+                // La consulta no devolvió resultados, hacer otra acción aquí
+                if (password_verify($password,$contra)) {
                     // Establecer las variables de sesión
-                    $_SESSION['username'] = $user;
-                    header("Location: main.php");
-                    exit;
-                }else{
-                    echo "<script>";
-                    echo "Swal.fire({";
-                    echo "icon: 'error',";
-                    echo "title: 'Oops...',";
-                    echo "text: '¡Verifique sus datos!',";
-                    echo "})";
-                    echo "</script>";
+                    $_SESSION['privilegio'] = $tipusu;
+                    $_SESSION['username'] = $username;
+                    $_SESSION['privilegio'] = $tipusu;
+                    $_SESSION['idusario'] = $id;
+                    header("Location:main.php");
+                    exit();
+                } else {
+                    header("Location:iniciosesion.php?mensaje=Error:%20La%20contraseña%20es%20incorrecta");
+                    exit();
                 }
             }
-
+        }else {
+        header("Location:iniciosesion.php?mensaje=Error:%20No%20se%20permiten%20campos%20vacíos");
+        exit();
     }
-    if(!empty($_POST["btn_registarse"])){
-
-        $user = $_POST['username'];
-        $corr = $_POST['correo'];
-        $contra = $_POST['password'];
-        $contra1 = $_POST['password1'];
-
-
-        try{
-            $consulta = "SELECT * FROM usuario WHERE nombre = '".mysqli_real_escape_string($conexion, $user)."'";
-            $resultado  = mysqli_query($conexion,$consulta);
-        }catch(Expetion $ex){
-           
-            
-        }
-
-        if (empty($user) || empty($contra) || empty($contra1)) {
-            echo "<script>";
-            echo "Swal.fire({";
-            echo "icon: 'error',";
-            echo "title: 'Oops...',";
-            echo "text: '¡Por favor, complete todos los campos!',";
-            echo "})";
-            echo "</script>";
-            
-        }
-        
-        if (isset($_POST['username'], $_POST['password'], $_POST['password1']) &&
-            !empty($_POST['username']) &&
-            !empty($_POST['password']) &&
-            !empty($_POST['password1'])) {
-                if (mysqli_num_rows($resultado) > 0) {
-                    echo "<script>";
-                    echo "Swal.fire({";
-                    echo "icon: 'error',";
-                    echo "title: 'Oops...',";
-                    echo "text: '¡Ya existe un usuario!',";
-                    echo "})";
-                    echo "</script>";
-                    
-                }else{
-                    $contra = password_hash($contra1,PASSWORD_DEFAULT,['cost'=>10]);
-                    $insertar = "INSERT INTO usuario (nombre, correo,contrasena) VALUES ('".mysqli_real_escape_string($conexion, $user)."', '".mysqli_real_escape_string($conexion, $corr)."','".mysqli_real_escape_string($conexion, $contra)."')";
-                    $resultado  = mysqli_query($conexion,$insertar);
-                    header("Location:exitosa.html");
-                    // Todas las variables tienen un valor asignado
-                    // Aquí puede colocar el código que desea ejecutar cuando todas las variables estén llenas
-                }
-
-            
-        }
-        
-
-    
-    }
-
+}else{
+    header("Location:iniciosesion.php?mensaje=Error:%20No%20se%20permiten%20campos%20vacíos");
+    exit();
+}
 ?>

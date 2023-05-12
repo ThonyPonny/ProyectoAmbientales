@@ -1,8 +1,8 @@
 <?php
     $servidor = "localhost";
-    $usuario = "id20640104_root";
-    $contrasena = "PVg7VwLar20E1!";
-    $db = "id20640104_salvandoalcanon";
+    $usuario = "root";
+    $contrasena = "";
+    $db = "salvandoalcanon";
     $conexion = mysqli_connect($servidor, $usuario, $contrasena, $db);
 
     if (!$conexion) {
